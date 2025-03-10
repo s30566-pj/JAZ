@@ -8,6 +8,6 @@ public class Two {
 
     @Autowired
     public Two(One one){
-        System.out.println("And I'm second!");
+        System.out.println("Two");
     }
 }
