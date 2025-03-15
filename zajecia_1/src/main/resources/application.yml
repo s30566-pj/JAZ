@@ -15,3 +15,6 @@ custom:
   credentials:
       user: test-user
       password: pass
+
+app:
+  enviroment: Qa
