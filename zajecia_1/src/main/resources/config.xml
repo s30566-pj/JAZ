@@ -9,7 +9,11 @@
     </bean>
     <bean id="two" class="pl.pjatk.danmak.components.Two">
         <constructor-arg ref="one"/>
+        <constructor-arg ref="configproperties" />
     </bean>
     <bean id="context" class="pl.pjatk.danmak.components.Context"> <!-- Nie powinienem dodawać applicationcontext jako property? -->
+    </bean>
+    <bean id="configproperties" class="pl.pjatk.danmak.config.ConfigProperties">
+
     </bean>
 </beans>

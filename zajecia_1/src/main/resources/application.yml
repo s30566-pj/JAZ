@@ -1,6 +1,7 @@
 my:
   custom:
     property: Hello from application properties
+
 spring:
   application:
     name: danmak
@@ -8,3 +9,9 @@ spring:
 init:
   custom:
     property: false
+
+custom:
+  login-url: test-login
+  credentials:
+      user: test-user
+      password: pass
