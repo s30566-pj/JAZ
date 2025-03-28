@@ -17,4 +17,4 @@ custom:
       password: pass
 
 app:
-  environment: dev
+  environment: staging
