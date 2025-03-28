@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class FacadeService {
-    @Value("${app.environment:prod}")
+    @Value("${app.environment:dev}")
     private String env;
     private final DevService devService;
     private final ProdService prodService;
