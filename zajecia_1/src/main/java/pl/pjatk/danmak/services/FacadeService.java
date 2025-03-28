@@ -6,12 +6,26 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class FacadeService {
+    @Value("${app.environment:prod}")
     private String env;
+    private final DevService devService;
+    private final ProdService prodService;
+    private final QaService qaService;
     @Autowired
-    public FacadeService() {
+    public FacadeService(DevService devService, ProdService prodService, QaService qaService) {
+        this.devService = devService;
+        this.prodService = prodService;
+        this.qaService = qaService;
     }
-    @Autowired
-    public DevService conditionallyGetDevService( DevService devService ) {
+
+
+    public String execute(){
+        return switch (env) {
+            case "dev" -> devService.returnCommunicate();
+            case "qa" -> qaService.returnCommunicate();
+            case "prod" -> prodService.returnCommunicate();
+            default -> "Invalid environment: " + env;
+        };
 
     }
 }

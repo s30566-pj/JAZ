@@ -17,4 +17,4 @@ custom:
       password: pass
 
 app:
-  enviroment: Qa
+  environment: dev
