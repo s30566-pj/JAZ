@@ -1,16 +1,16 @@
 package pl.pjatk.danmak.services;
 
-import org.apache.coyote.Response;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import pl.pjatk.danmak.components.Car;
 
 @Service
 public class MessageService {
-    public ResponseEntity<String> responseEntity(String wartosc){
+    public String responseEntity(String wartosc){
         if (wartosc != null){
-            return ResponseEntity.ok(wartosc);
+            return wartosc;
         } else {
-            return ResponseEntity.ok("Hello world");
+            return "Hello world";
         }
     }
+
 }

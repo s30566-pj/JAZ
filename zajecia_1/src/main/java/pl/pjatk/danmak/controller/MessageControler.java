@@ -2,10 +2,7 @@ package pl.pjatk.danmak.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.pjatk.danmak.components.Car;
 import pl.pjatk.danmak.services.CarService;
 import pl.pjatk.danmak.services.FacadeService;
@@ -32,13 +29,13 @@ public class MessageControler {
 
     @GetMapping("/test/hello")
     public ResponseEntity<String> hello(@RequestParam(required = false) String reqParam){
-        return messageService.responseEntity(reqParam);
+        return ResponseEntity.ok(messageService.responseEntity(reqParam));
         }
 
 
-    @GetMapping("/test/model")
-    public ResponseEntity<Car> returnedCar(){
-        return ResponseEntity.ok(carService.retunCar());
+    @PostMapping("/test/model")
+    public ResponseEntity<Car> getSomeObject(@RequestBody(required = false) Car car){
+        return ResponseEntity.ok(carService.retunCar(car));
     }
 
     @GetMapping("/test/hello/{someValue}")
