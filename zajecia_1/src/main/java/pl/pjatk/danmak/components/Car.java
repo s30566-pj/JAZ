@@ -14,6 +14,10 @@ public class Car {
         this.model = model;
     }
 
+    public Car(String model){
+        this.model = model;
+    }
+
     public String getVim() {
         return vim;
     }
