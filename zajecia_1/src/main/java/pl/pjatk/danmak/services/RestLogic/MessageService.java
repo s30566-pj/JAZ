@@ -1,7 +1,6 @@
-package pl.pjatk.danmak.services;
+package pl.pjatk.danmak.services.RestLogic;
 
 import org.springframework.stereotype.Service;
-import pl.pjatk.danmak.components.Car;
 
 @Service
 public class MessageService {

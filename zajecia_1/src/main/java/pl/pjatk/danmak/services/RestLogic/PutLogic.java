@@ -1,4 +1,4 @@
-package pl.pjatk.danmak.services;
+package pl.pjatk.danmak.services.RestLogic;
 
 
 import org.springframework.stereotype.Service;

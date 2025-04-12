@@ -4,11 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.pjatk.danmak.components.Car;
-import pl.pjatk.danmak.services.DeleteLogic;
-import pl.pjatk.danmak.services.PutLogic;
+import pl.pjatk.danmak.services.RestLogic.DeleteLogic;
+import pl.pjatk.danmak.services.RestLogic.PutLogic;
 import pl.pjatk.danmak.services.CarService;
 import pl.pjatk.danmak.services.FacadeService;
-import pl.pjatk.danmak.services.MessageService;
+import pl.pjatk.danmak.services.RestLogic.MessageService;
 
 @RestController
 public class MessageControler {
