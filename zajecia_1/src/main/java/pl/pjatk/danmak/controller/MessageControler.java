@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.pjatk.danmak.components.Car;
-import pl.pjatk.danmak.components.DeleteLogic;
-import pl.pjatk.danmak.components.PutLogic;
+import pl.pjatk.danmak.services.DeleteLogic;
+import pl.pjatk.danmak.services.PutLogic;
 import pl.pjatk.danmak.services.CarService;
 import pl.pjatk.danmak.services.FacadeService;
 import pl.pjatk.danmak.services.MessageService;
@@ -76,4 +76,10 @@ public class MessageControler {
         return ResponseEntity.status(204).build();
     }
 
+    @GetMapping("/exception")
+    public ResponseEntity<Exception> throwException(){
+        throw new RuntimeException("Test exception");
+    }
+
 }
+
