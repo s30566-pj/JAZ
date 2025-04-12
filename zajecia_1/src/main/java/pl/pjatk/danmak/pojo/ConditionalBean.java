@@ -1,4 +1,4 @@
-package pl.pjatk.danmak.four;
+package pl.pjatk.danmak.pojo;
 
 public class ConditionalBean {
     public ConditionalBean(){

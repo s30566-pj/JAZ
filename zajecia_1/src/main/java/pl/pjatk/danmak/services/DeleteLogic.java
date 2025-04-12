@@ -1,8 +1,8 @@
-package pl.pjatk.danmak.components;
+package pl.pjatk.danmak.services;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class DeleteLogic {
     public int returnIfGood(String pathVariable){
         if (!pathVariable.isEmpty()){

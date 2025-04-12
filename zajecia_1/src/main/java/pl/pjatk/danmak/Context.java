@@ -1,7 +1,9 @@
-package pl.pjatk.danmak.components;
+package pl.pjatk.danmak;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import pl.pjatk.danmak.components.One;
+import pl.pjatk.danmak.components.Two;
 
 
 public class Context {

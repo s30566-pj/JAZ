@@ -13,6 +13,8 @@ public class ConfigProperties {
     private String loginUrl;
     private Credentials credentials;
 
+    public ConfigProperties(){}
+
     @Configuration
     public static class Credentials{
         private String user;
