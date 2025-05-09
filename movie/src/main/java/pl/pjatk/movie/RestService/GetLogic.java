@@ -1,9 +1,8 @@
-package RestService;
+package pl.pjatk.movie.RestService;
 
-import objects.Movie;
+import pl.pjatk.movie.objects.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import technicalComponents.MoviesList;
 
 import java.util.List;
 

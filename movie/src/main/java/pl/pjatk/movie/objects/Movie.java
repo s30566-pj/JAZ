@@ -1,6 +1,6 @@
-package objects;
+package pl.pjatk.movie.objects;
 
-import enums.Genre;
+import pl.pjatk.movie.enums.Genre;
 
 import java.time.LocalDateTime;
 

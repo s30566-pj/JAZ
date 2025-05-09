@@ -1,7 +1,7 @@
-package controller;
+package pl.pjatk.movie.controller;
 
-import RestService.GetLogic;
-import objects.Movie;
+import pl.pjatk.movie.RestService.GetLogic;
+import pl.pjatk.movie.objects.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

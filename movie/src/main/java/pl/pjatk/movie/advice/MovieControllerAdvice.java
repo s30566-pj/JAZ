@@ -1,4 +1,4 @@
-package advice;
+package pl.pjatk.movie.advice;
 
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 

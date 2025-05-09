@@ -1,4 +1,4 @@
-package enums;
+package pl.pjatk.movie.enums;
 
 
 public enum Genre {

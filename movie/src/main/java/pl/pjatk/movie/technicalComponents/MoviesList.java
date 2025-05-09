@@ -1,7 +1,7 @@
-package technicalComponents;
+package pl.pjatk.movie.technicalComponents;
 
-import enums.Genre;
-import objects.Movie;
+import pl.pjatk.movie.enums.Genre;
+import pl.pjatk.movie.objects.Movie;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import java.time.LocalDateTime;
