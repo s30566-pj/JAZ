@@ -11,10 +11,6 @@ import java.util.List;
 @Configuration
 public class MoviesList {
 
-    public void setMovieList(List<Movie> movieList) {
-        this.movieList = movieList;
-    }
-
     @Bean
     public List<Movie> movieList(){
         return List.of(
