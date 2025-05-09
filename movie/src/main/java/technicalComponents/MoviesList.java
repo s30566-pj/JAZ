@@ -2,31 +2,26 @@ package technicalComponents;
 
 import enums.Genre;
 import objects.Movie;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Configuration
 public class MoviesList {
 
     public void setMovieList(List<Movie> movieList) {
         this.movieList = movieList;
     }
 
-    private List<Movie> movieList;
-
-    public MoviesList(){
-        this.movieList = new ArrayList<>();
-        movieList.add(new Movie(1, "Minecraft Movie", "Just a movie", LocalDateTime.of(2025,4,4, 0, 0), Genre.COMEDY));
-        movieList.add(new Movie(2, "Titanic", "It drowned.", LocalDateTime.of(1997,12, 19, 0, 0), Genre.ROMANTIC));
+    @Bean
+    public List<Movie> movieList(){
+        return List.of(
+            new Movie(1, "Minecraft Movie", "Just a movie", LocalDateTime.of(2025,4,4, 0, 0), Genre.COMEDY),
+            new Movie(2, "Titanic", "It drowned.", LocalDateTime.of(1997,12, 19, 0, 0), Genre.ROMANTIC)
+        );
     }
-
-    public List<Movie> getMovieList() {
-        return movieList;
-    }
-
 
 
 
