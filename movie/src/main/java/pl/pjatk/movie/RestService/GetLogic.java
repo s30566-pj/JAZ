@@ -1,6 +1,7 @@
 package pl.pjatk.movie.RestService;
 
 import org.springframework.http.ResponseEntity;
+import pl.pjatk.movie.exceptions.MovieNotFoundException;
 import pl.pjatk.movie.objects.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,7 @@ public class GetLogic {
             }
         }
 
-        throw new RuntimeException("No movie found");
+        throw new MovieNotFoundException(id);
     }
 
 }
