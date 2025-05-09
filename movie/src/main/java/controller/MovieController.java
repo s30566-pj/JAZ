@@ -20,7 +20,7 @@ public class MovieController {
     }
 
     @GetMapping("/movies")
-    public ResponseEntity<List<Movie>> returnMoviesList{
+    public ResponseEntity<List<Movie>> returnMoviesList(){
         return ResponseEntity.ok(getLogic.returnMoviesList());
     }
 }

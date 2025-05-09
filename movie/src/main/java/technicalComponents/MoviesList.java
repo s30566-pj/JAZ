@@ -16,13 +16,11 @@ public class MoviesList {
     }
 
     private List<Movie> movieList;
-    @Autowired
-    private Genre genre;
 
     public MoviesList(){
         this.movieList = new ArrayList<>();
-        movieList.add(new Movie(1, "Minecraft Movie", "Just a movie", LocalDateTime.of(2025,4,4, 0, 0), genre.COMEDY));
-        movieList.add(new Movie(2, "Titanic", "It drowned.", LocalDateTime.of(1997,12, 19, 0, 0), genre.ROMANTIC));
+        movieList.add(new Movie(1, "Minecraft Movie", "Just a movie", LocalDateTime.of(2025,4,4, 0, 0), Genre.COMEDY));
+        movieList.add(new Movie(2, "Titanic", "It drowned.", LocalDateTime.of(1997,12, 19, 0, 0), Genre.ROMANTIC));
     }
 
     public List<Movie> getMovieList() {
