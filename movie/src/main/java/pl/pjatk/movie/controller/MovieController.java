@@ -1,5 +1,6 @@
 package pl.pjatk.movie.controller;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import pl.pjatk.movie.RestService.GetLogic;
 import pl.pjatk.movie.objects.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,10 @@ public class MovieController {
     @GetMapping("/movies")
     public ResponseEntity<List<Movie>> returnMoviesList(){
         return ResponseEntity.ok(getLogic.returnMoviesList());
+    }
+
+    @GetMapping("/movies/{id}")
+    public ResponseEntity<Movie> getMovieById(@PathVariable("id") int id){
+        return ResponseEntity.ok(getLogic.returnMovieByID(id));
     }
 }
