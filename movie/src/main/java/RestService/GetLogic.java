@@ -11,10 +11,15 @@ import java.util.List;
 @Service
 public class GetLogic {
 
+
+    private final List<Movie> movieList;
+
     @Autowired
-    private MoviesList moviesList;
+    public GetLogic(List<Movie> movieList){
+        this.movieList = movieList;
+    }
 
     public List<Movie> returnMoviesList(){
-        return moviesList.getMovieList();
+        return movieList;
     }
 }
