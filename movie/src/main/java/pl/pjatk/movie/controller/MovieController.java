@@ -1,14 +1,13 @@
 package pl.pjatk.movie.controller;
 
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 import pl.pjatk.movie.RestService.GetLogic;
 import pl.pjatk.movie.objects.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class MovieController {
@@ -28,5 +27,10 @@ public class MovieController {
     @GetMapping("/movies/{id}")
     public ResponseEntity<Movie> getMovieById(@PathVariable("id") int id){
         return ResponseEntity.ok(getLogic.returnMovieByID(id));
+    }
+
+    @PostMapping("/movies")
+    public ResponseEntity<Movie> createNewMovie(@RequestBody(required = true) Map<String, String> body){ // Nie mogłem podać dwóch osobnych Stringów, to użyłem mapy, działa lol
+        return ResponseEntity.ok(getLogic.returnNewMovie(body.get("name"), body.get("genre")));
     }
 }

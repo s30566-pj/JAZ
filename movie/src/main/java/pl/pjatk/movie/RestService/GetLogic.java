@@ -1,11 +1,13 @@
 package pl.pjatk.movie.RestService;
 
 import org.springframework.http.ResponseEntity;
+import pl.pjatk.movie.enums.Genre;
 import pl.pjatk.movie.exceptions.MovieNotFoundException;
 import pl.pjatk.movie.objects.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -31,6 +33,20 @@ public class GetLogic {
         }
 
         throw new MovieNotFoundException(id);
+    }
+
+    public int nextFreeId(){
+        return movieList.stream().mapToInt(Movie::getId).max().orElse(0)+1;
+    }
+
+    public Movie returnNewMovie(String name, String genreName){
+        try {
+            Genre.valueOf(genreName.toUpperCase());
+        } catch (IllegalArgumentException ex){
+            throw new RuntimeException("Wrong genre " + genreName);
+        }
+
+        return new Movie(nextFreeId(), name, Genre.valueOf(genreName.toUpperCase()));
     }
 
 }
