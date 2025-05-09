@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 public class MovieController {
 
-    private GetLogic getLogic;
+    private final GetLogic getLogic;
 
     @Autowired
     public MovieController(GetLogic getLogic){
