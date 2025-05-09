@@ -32,6 +32,12 @@ public class Movie {
         this.genre = genre;
     }
 
+    public Movie(int id, String name, Genre genre){
+        this.id = id;
+        this.genre = genre;
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }
