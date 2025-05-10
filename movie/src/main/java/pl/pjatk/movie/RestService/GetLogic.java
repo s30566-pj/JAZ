@@ -1,5 +1,6 @@
 package pl.pjatk.movie.RestService;
 
+import ch.qos.logback.core.model.processor.ModelHandlerException;
 import pl.pjatk.movie.enums.Genre;
 import pl.pjatk.movie.exceptions.MovieNotFoundException;
 import pl.pjatk.movie.interfaces.MovieRepository;
@@ -66,8 +67,8 @@ public class GetLogic {
         }
     }
 
-    public Movie findById(Long id){
-        return movieRepository.findById(id).orElseThrow(MovieNotFoundException(id));
+    public Movie findById(Long id) throws ModelHandlerException {
+        return movieRepository.findById(id).orElseThrow(ModelHandlerException::new);
     }
 
 }
