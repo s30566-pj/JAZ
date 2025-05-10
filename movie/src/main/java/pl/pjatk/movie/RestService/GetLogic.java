@@ -5,8 +5,6 @@ import pl.pjatk.movie.exceptions.MovieNotFoundException;
 import pl.pjatk.movie.objects.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Comparator;
 import java.util.List;
 
 
@@ -48,21 +46,14 @@ public class GetLogic {
         return new Movie(nextFreeId(), name, Genre.valueOf(genreName.toUpperCase()));
     }
 
-    public Movie editMovie(int id, Movie movie){
-        try {
-            returnMovieByID(id);
-        } catch (MovieNotFoundException ex){
-            throw new RuntimeException("No such movie of id " + id);
+    public Movie editMovie(int id, Movie movie){ //OMG TO DZIAŁA <33333333
+        for (int i = 0; i<movieList.size(); i++){
+            if (movieList.get(i).getId() == id){
+                movieList.set(i, movie);
+                return movieList.get(i);
+            }
         }
-
-        Movie existing = returnMovieByID(id);
-        existing.setName(movie.getName());
-        existing.setDescription(movie.getDescription());
-        existing.setReleaseDate(movie.getReleaseDate());
-        existing.setGenre(movie.getGenre());
-        // Nie podobało mi się jak było wcześniej, spędziłem z ponad pół godziny bo podmiana elementu w liście po indexie powodowała zwracanie nulla...
-        return existing;
-
+        throw new RuntimeException("No such movie of id " + id);
     }
 
     public void deleteExistingMovie(int id){
