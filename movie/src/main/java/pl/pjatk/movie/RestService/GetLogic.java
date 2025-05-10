@@ -49,4 +49,15 @@ public class GetLogic {
         return new Movie(nextFreeId(), name, Genre.valueOf(genreName.toUpperCase()));
     }
 
+    public Movie editMovie(int id, Movie movie){
+        try {
+            returnMovieByID(id);
+        } catch (MovieNotFoundException ex){
+            throw new RuntimeException("No such movie of id " + id);
+        }
+        Movie movieToEdit = returnMovieByID(id);
+        movieToEdit = movie;
+        return movieToEdit;
+    }
+
 }

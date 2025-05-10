@@ -11,6 +11,8 @@ public class Movie {
     private LocalDateTime releaseDate;
     private Genre genre;
 
+    public Movie(){}
+
     public Movie(int id, String name, String description, LocalDateTime releaseDate, Genre genre) {
         this.id = id;
         this.name = name;
