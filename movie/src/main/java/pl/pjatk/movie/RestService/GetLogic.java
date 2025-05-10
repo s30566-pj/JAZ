@@ -1,6 +1,5 @@
 package pl.pjatk.movie.RestService;
 
-import org.springframework.http.ResponseEntity;
 import pl.pjatk.movie.enums.Genre;
 import pl.pjatk.movie.exceptions.MovieNotFoundException;
 import pl.pjatk.movie.objects.Movie;
@@ -15,7 +14,7 @@ import java.util.List;
 public class GetLogic {
 
 
-    private final List<Movie> movieList;
+    private List<Movie> movieList;
 
     @Autowired
     public GetLogic(List<Movie> movieList){
@@ -55,9 +54,16 @@ public class GetLogic {
         } catch (MovieNotFoundException ex){
             throw new RuntimeException("No such movie of id " + id);
         }
-        Movie movieToEdit = returnMovieByID(id);
-        movieToEdit = movie;
-        return movieToEdit;
+
+        Movie existing = returnMovieByID(id);
+        existing.setName(movie.getName());
+        existing.setDescription(movie.getDescription());
+        existing.setReleaseDate(movie.getReleaseDate());
+        existing.setGenre(movie.getGenre());
+        // Nie podobało mi się jak było wcześniej, spędziłem z ponad pół godziny bo podmiana elementu w liście po indexie powodowała zwracanie nulla...
+        return existing;
+
     }
+
 
 }
