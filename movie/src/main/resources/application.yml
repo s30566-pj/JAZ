@@ -1,0 +1,7 @@
+spring:
+    application:
+        name: movie
+    datasource:
+        url: jdbc:mysql://szuflandia.pjwstk.edu.pl:3306/s30566
+        username: s30566
+        password: Dan.Mako

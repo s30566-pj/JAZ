@@ -25,7 +25,7 @@ public class MovieController {
     }
 
     @GetMapping("/movies/{id}")
-    public ResponseEntity<Movie> getMovieById(@PathVariable("id") int id){
+    public ResponseEntity<Movie> getMovieById(@PathVariable("id") Long id){
         return ResponseEntity.ok(getLogic.returnMovieByID(id));
     }
 
@@ -35,12 +35,12 @@ public class MovieController {
     }
 
     @PutMapping("/movies/{id}")
-    public ResponseEntity<Movie> editExistingMovie(@RequestBody(required = true) Movie movie, @PathVariable("id") int id){
+    public ResponseEntity<Movie> editExistingMovie(@RequestBody(required = true) Movie movie, @PathVariable("id") Long id){
         return ResponseEntity.ok(getLogic.editMovie(id, movie));
     }
 
     @DeleteMapping("/movies/{id}")
-    public ResponseEntity<Void> deleteExistingMovie(@PathVariable("id") int id){
+    public ResponseEntity<Void> deleteExistingMovie(@PathVariable("id") Long id){
         getLogic.deleteExistingMovie(id);
         return ResponseEntity.noContent().build();
     }

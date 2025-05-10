@@ -1,11 +1,16 @@
 package pl.pjatk.movie.objects;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Table;
+import org.springframework.data.annotation.Id;
 import pl.pjatk.movie.enums.Genre;
 
 import java.time.LocalDateTime;
 
+@Table
 public class Movie {
-    private int id;
+    @Id
+    private Long id;
     private String name;
     private String description;
     private LocalDateTime releaseDate;
@@ -13,7 +18,7 @@ public class Movie {
 
     public Movie(){}
 
-    public Movie(int id, String name, String description, LocalDateTime releaseDate, Genre genre) {
+    public Movie(Long id, String name, String description, LocalDateTime releaseDate, Genre genre) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -34,17 +39,17 @@ public class Movie {
         this.genre = genre;
     }
 
-    public Movie(int id, String name, Genre genre){
+    public Movie(Long id, String name, Genre genre){
         this.id = id;
         this.genre = genre;
         this.name = name;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
