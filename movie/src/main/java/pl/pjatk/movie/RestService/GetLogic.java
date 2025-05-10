@@ -65,5 +65,11 @@ public class GetLogic {
 
     }
 
+    public void deleteExistingMovie(int id){
+        boolean removed = movieList.removeIf(m -> m.getId() == id); //usuwanie po predykacie, poszuka obiektu z danym id nie tworząc nowego i go usunie
+        if (!removed){
+            throw new MovieNotFoundException(id);
+        }
+    }
 
 }

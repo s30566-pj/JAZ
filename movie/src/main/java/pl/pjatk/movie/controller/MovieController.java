@@ -39,4 +39,10 @@ public class MovieController {
         return ResponseEntity.ok(getLogic.editMovie(id, movie));
     }
 
+    @DeleteMapping("/movies/{id}")
+    public ResponseEntity<Void> deleteExistingMovie(@PathVariable("id") int id){
+        getLogic.deleteExistingMovie(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
