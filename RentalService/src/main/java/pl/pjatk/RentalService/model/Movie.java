@@ -1,17 +1,10 @@
-package pl.pjatk.movie.objects;
+package pl.pjatk.RentalService.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import org.springframework.data.annotation.Id;
-import pl.pjatk.movie.enums.Genre;
+import pl.pjatk.RentalService.enums.Genre;
 
 import java.time.LocalDateTime;
 
-@Entity
 public class Movie {
-    @jakarta.persistence.Id
-    @Id
     private Long id;
     private String name;
     private String description;

@@ -1,10 +1,10 @@
-package pl.pjatk.movie.objects;
+package pl.pjatk.RetalService.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import org.springframework.data.annotation.Id;
-import pl.pjatk.movie.enums.Genre;
+import pl.pjatk.RetalService.enums.Genre;
 
 import java.time.LocalDateTime;
 
@@ -90,3 +90,4 @@ public class Movie {
         return id;
     }
 }
+
