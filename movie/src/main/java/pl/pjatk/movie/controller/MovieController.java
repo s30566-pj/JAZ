@@ -1,5 +1,7 @@
 package pl.pjatk.movie.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 import pl.pjatk.movie.RestService.GetLogic;
 import pl.pjatk.movie.objects.Movie;
@@ -10,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@Tag(name = "Movies", description = "Endpoints for managing movies")
 public class MovieController {
 
     private final GetLogic getLogic;
@@ -19,6 +22,7 @@ public class MovieController {
         this.getLogic = getLogic;
     }
 
+    @Operation(summary = "Get all movies", description = "Returns list of all movies")
     @GetMapping("/movies")
     public ResponseEntity<List<Movie>> returnMoviesList(){
         return ResponseEntity.ok(getLogic.returnMoviesList());
@@ -44,5 +48,11 @@ public class MovieController {
         getLogic.deleteExistingMovie(id);
         return ResponseEntity.noContent().build();
     }
+
+//    @GetMapping("/movies/avail/{id}")
+//    public ResponseEntity<Movie> createNewMovie(@PathVariable("id") Long id){
+//        getLogic.changeIsAvailable(id);
+//        return
+//    }
 
 }

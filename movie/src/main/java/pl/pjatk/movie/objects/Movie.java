@@ -1,24 +1,38 @@
 package pl.pjatk.movie.objects;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
 import pl.pjatk.movie.enums.Genre;
 
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "movies")
 public class Movie {
-    @jakarta.persistence.Id
     @Id
+    @Column
     private Long id;
+    @Column
     private String name;
+    @Column
     private String description;
+    @Column
     private LocalDateTime releaseDate;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Genre genre;
+    @Column
+    private boolean isAvailable = false;
 
     public Movie(){}
+
+    public Movie(Long id, String name, String description, LocalDateTime releaseDate, Genre genre, boolean isAvailable) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.releaseDate = releaseDate;
+        this.genre = genre;
+        this.isAvailable=isAvailable;
+    }
 
     public Movie(Long id, String name, String description, LocalDateTime releaseDate, Genre genre) {
         this.id = id;
@@ -89,4 +103,13 @@ public class Movie {
     public Long getId() {
         return id;
     }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
+    }
+
 }

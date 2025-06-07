@@ -53,7 +53,7 @@ public class GetLogic {
 
     public Movie editMovie(Long id, Movie movie){ //OMG TO DZIAŁA <33333333
         for (int i = 0; i<movieList.size(); i++){
-            if (movieList.get(i).getId() == id){
+            if (Objects.equals(movieList.get(i).getId(), id)){
                 movieList.set(i, movie);
                 return movieList.get(i);
             }
@@ -62,10 +62,17 @@ public class GetLogic {
     }
 
     public void deleteExistingMovie(Long id){
-        boolean removed = movieList.removeIf(m -> m.getId() == id); //usuwanie po predykacie, poszuka obiektu z danym id nie tworząc nowego i go usunie
+        boolean removed = movieList.removeIf(m -> Objects.equals(m.getId(), id)); //usuwanie po predykacie, poszuka obiektu z danym id nie tworząc nowego i go usunie
         if (!removed){
             throw new MovieNotFoundException(id);
         }
+    }
+
+    public void changeIsAvailable(Long id){
+
+        Movie film = returnMovieByID(id);
+        film.setAvailable(true);
+
     }
 
     public Movie findById(Long id) throws ModelHandlerException {
